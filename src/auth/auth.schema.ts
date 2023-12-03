@@ -7,7 +7,7 @@ const registerUser = {
   body: z.object({
     firstName: z.string(),
     lastName: z.string(),
-    email: z.string().email(),
+    email: z.string(),
     password: z.string(),
   }),
   response: z.object({
@@ -27,13 +27,13 @@ const registerUserSchema: FastifySchema = {
 
 const login = {
   body: z.object({
-    email: z.string().email(),
+    email: z.string(),
     password: z.string(),
   }),
   response: z.object({
     success: z.literal(true),
     data: z.object({
-      token: z.string(),
+      token: z.any(),
     }),
   }),
 };

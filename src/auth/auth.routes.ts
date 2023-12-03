@@ -10,4 +10,12 @@ export default async function authRoutes(app: FastifyInstance) {
     },
     authController.registerUser
   );
+
+  app.post(
+    "/login",
+    {
+      schema: authSchema.loginSchema,
+    },
+    authController.login
+  );
 }
